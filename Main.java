@@ -56,7 +56,7 @@ public class Main {
 
 	}
 
-	// run the program
+	// run
 	public static void execute(Order order, Display display) {
 
 		int choice = 0;
@@ -81,7 +81,6 @@ public class Main {
 		}
 	}
 
-	// main() method
 	public static void main(String[] args) {
 
 		Order order = new Order(); // create the queue

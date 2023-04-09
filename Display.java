@@ -31,7 +31,7 @@ public class Display {
 		orderArray = new OrderLineItem[size];
 	}
 
-	// insert order into arrays
+	// put order into the two arrays
 	public void insertOrder(OrderLineItem item) {
 		if (currentSize == size)
 			arrayResize();
@@ -46,23 +46,24 @@ public class Display {
 		print();
 	}
 
-	// remove order from array
+	// take order out of arrays
 	public void removeOrder(OrderLineItem item) {
 		int i;
+
 		for (i = 0; i < currentSize; i++) {
 			if (item == nameArray[i])
 				break;
 		}
-		for (int k = i; k < currentSize - 1; k++)
-			nameArray[i] = nameArray[i + 1];
-
+		for (int k = i; k < currentSize; k++) {
+			nameArray[k] = nameArray[k + 1];
+		}
 		for (i = 0; i < currentSize; i++) {
 			if (item == orderArray[i])
 				break;
 		}
-		for (int k = i; k < currentSize - 1; k++)
-			orderArray[i] = orderArray[i + 1];
-
+		for (int k = i; k < currentSize; k++) {
+			orderArray[k] = orderArray[k + 1];
+		}
 		nameArray[currentSize - 1] = null;
 		orderArray[currentSize - 1] = null;
 		currentSize -= 1;
@@ -71,7 +72,7 @@ public class Display {
 
 	}
 
-	// print two array
+	// print the arrays
 	public void print() {
 		System.out.println();
 		System.out.print("Your queue of orders, sorted by name: \n");
@@ -84,11 +85,11 @@ public class Display {
 
 	// overload print() method
 	public void print(OrderLineItem[] array) {
-		System.out.println("=====================================");
-		System.out.println("= Order Num || Last Name || Cost    =");
-		System.out.println("=====================================");
+		System.out.println("======================================");
+		System.out.println("= Order Num || Last Name    || Cost  =");
+		System.out.println("======================================");
 		for (int i = 0; i < currentSize; i++)
-			System.out.printf("= %1s         || %-10s   || %5s  \n", array[i].getOrderNumber(), array[i].getName(),
+			System.out.printf("= %1s         || %-10s   || %.8s  \n", array[i].getOrderNumber(), array[i].getName(),
 					array[i].getOrderCost());
 
 	}
